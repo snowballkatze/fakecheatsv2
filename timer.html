@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Player</title>
+  <style>
+    body {
+      background-color: #000000;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    
+    audio {
+      display: none;
+    }
+
+    .center-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(45deg, #ff0000, #800000);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      outline: none;
+      animation: pulse-animation 1s infinite alternate;
+    }
+
+    .center-button span {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    .warning-text {
+      text-align: center;
+      font-family: "Comic Sans MS", cursive;
+      font-size: 18px;
+      color: #ff0000;
+      margin-bottom: 20px;
+    }
+
+    .restart-text {
+      text-align: center;
+      font-family: "Comic Sans MS", cursive;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    .huge-text {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 40px;
+      color: #ff0000;
+      text-transform: uppercase;
+      margin-top: 100px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      width: 200px;
+      height: auto;
+    }
+
+    @keyframes pulse-animation {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="huge-text">
+    <p>Stop cheating loser</p>
+  </div>
+
+  <div class="image-container">
+    <img src="https://static.wikia.nocookie.net/79468069-2595-497f-b889-5d9a4bc068ad" alt="Image">
+  </div>
+
+  <audio id="audioPlayer" src="https://cdn.discordapp.com/attachments/1111619715673108562/1111684130736971819/A1_-_Its_just_a_burning_memory.mp3" autoplay></audio>
+
+  <div class="warning-text">
+    <p>Oh No! <span style="color: #ffffff;">(Unfortunately, your browser has now been infected with malware.)</span></p>
+    <p class="restart-text">Computer will restart soon...</p>
+  </div>
+
+  <button id="audioButton" class="center-button" onclick="toggleAudio()">
+    <span>Enjoy your last music</span>
+  </button>
+
+  <script>
+    function toggleAudio() {
+      const audioPlayer = document.getElementById('audioPlayer');
+      const audioButton = document.getElementById('audioButton');
+      const warningText = document.querySelector('.warning-text');
+      const hugeText = document.querySelector('.huge-text');
+      const imageContainer = document.querySelector('.image-container');
+
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        audioButton.style.display = 'none';
+        warningText.style.display = 'none';
+        hugeText.style.display = 'none';
+        imageContainer.style.display = 'none';
+      } else {
+        audioPlayer.pause();
+      }
+    }
+  </script>
+</body>
+</html>
